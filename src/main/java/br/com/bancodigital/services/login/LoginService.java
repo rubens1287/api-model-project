@@ -24,7 +24,7 @@ public class LoginService extends Commons {
 
         response = httpRequest.post("auth/oauth/v2/token");
 
-        Assert.assertEquals(response.getStatusCode(),404);
+        Assert.assertEquals(response.getStatusCode(),200);
         return response.getBody().jsonPath().get("access_token");
     }
 }
