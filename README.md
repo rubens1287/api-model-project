@@ -1,11 +1,6 @@
-# SISTEMA - BACK-END
+# PROJETO MODELO PARA TESTE API
 
-Projeto desenvolvido com proposito de uma avaliação.
-
-## TESTE
-
-*   Trello
-    * [CT001 - BVBD - Consultar todos os cartoes do cliente](feature/Cartao Debito.feature)
+Projeto desenvolvido com proposito de ser um modelo base para teste de API
 
 ## PRÉ-REQUISITOS
 
@@ -14,36 +9,88 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 *   Java 1.8 SDK
 *   Maven 3.5.*
 
+## ESTRUTURA DO PROJETO
+
+* src\main\java\br\com\core
+
+    * Metodos genéricos de uso para qualquer projeto de teste
+
+* src\main\java\br\com\data
+
+    * Metodos do tipo models, para trabalhar com objetos de dados.
+ 
+* src\main\java\br\com\request
+
+    * Metodos do tipo models, que representa objetos a serem serealizado em json para as requisições de apis
+
+* src\main\java\br\com\respose
+
+    * Metodos do tipo models, que representa objetos que recebem a deserializaçao do json de reposta das apis
+   
+* src\main\java\br\com\services
+
+    * Local onde deve ser criado os objetos que executam requisições e validações das respotas
+
+* src\test\java\hooks
+
+    * Metodos que executam antes e depois de cada teste (@Before, @After)
+ 
+* src\test\java\runner
+
+    * Metodo prinicipal que inicia os testes via cucumber
+
+* src\test\java\steps
+
+    * Local onde deve ser criado as classes que representam os steps definition do cucumber
+ 
+* src\test\resources\data
+
+     * Massa de dados segregada por ambiente, escritos em arquivos yaml
+     
+* src\test\resources\features
+
+  * Funcionalidade e cenarios de teste escritos em linguagem DSL (Gherkin language)
+  
+* src\test\resources\schema
+
+    * Local para armazenamento dos arquivos de schema do json utilizados para validação de contrato
+    
 ## CLONE O PROJETO PARA SUA MÁQUINA LOCAL
 
 Abra o git bash, entre no diretório escolhido na sua máquina e faça o download do projeto com o comando abaixo.
 
 ```
-git clone *
+git clone https://git.gft.com/latam-qa-practice/automation-assets/api-model-project.git
 ```
 
-## PROPRIEDADES
+## FRAMEWORKS UTILIZADOS
 
-Acesse o arquivo no diretório "e2e-api-banco-digital\src\test\resources\bdbv.properties" e preencha as informações conforme abaixo;
+Abaixo está a lista de frameworks utilizados nesse projeto
     
-```
-DES_ENV=<url-environment-dev>
-UAT_ENV=<url-environment-uat>
 
-DES_CLIENT_ID=<your-client>
-DES_CLIENT_SECRET=<your-client-secret>
-
-UAT_CLIENT_ID=<your-client>
-UAT_CLIENT_SECRET=<your-client-secret>
-``` 
-
+* Jackson para leitura de dados de arquivo yaml file
+* Gson para serializacao e deserializacao de objetos
+* Allure report em HTML
+* Java Faker Geracao de dados sinteticos
+* Rest Assured para teste de API (Json, Soap, Xml)
+* Cucumber especificacao executavel de cenarios
+* Assert especializados com mais tipos de validacao
+* Lombok - Otimizacao de classes modelos
 
 ## COMANDO PARA EXECUTAR OS TESTES
 
 Com o git bash acesse a pasta do projeto, onde esta localizado o arquivo pom.xml, execute o comando abaixo para rodar os testes automatizados.
 
 ```
-mvn verify
+mvn clean test
+```
+
+## COMANDO PARA GERAR EVIDÊNCIAS EM HTML (ALLURE)
+
+Com o git bash acesse a pasta do projeto, onde esta localizado o arquivo pom.xml, execute o comando abaixo para rodar os testes automatizados.
+
+```
+mvn allure:report
 ```
 
 ## EVIDÊNCIAS
@@ -51,10 +98,7 @@ mvn verify
 Os arquivos com as evidências ficam localizados na pasta target do projeto, esta pasta só é criada depois da primeira execução.
 
 ```
- Report HTML: [caminho da sua maquina]e2e-api-banco-digital\target\generated-report/index.html
- Json Cucumber: [caminho da sua maquina]e2e-api-banco-digitald\target\json-cucumber-reports\cukejson.json
- Xml TestNG: [caminho da sua maquina]e2e-api-banco-digital\target\testng-cucumber-reports\cuketestng.xml
+ Report HTML: target\site\index.html
+ Json Cucumber: target\json-cucumber-reports\cucumber.json
+ Xml Junit: tagert\xml-junit\junit.xml
 ```
-## AUTOR
-
-* **Bruno Campitelli**

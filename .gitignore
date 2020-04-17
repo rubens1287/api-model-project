@@ -1,12 +1,14 @@
 .idea
 .settings
 .scannerwork
+.allure
 target/
 output/
 src/test/resources/drivers
 src/test/java/runner/parallel
 .classpath
 .project
+.DS_Store
 *.iml
 *.obj
 *.pdb

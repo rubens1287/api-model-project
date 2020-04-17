@@ -9,9 +9,9 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh 'mvn verify'
+                        sh 'mvn clean test'
                     } else {
-                        bat 'mvn verify'
+                        bat 'mvn clean test'
                     }
                     archiveArtifacts artifacts: '**', onlyIfSuccessful: false
                 }
@@ -31,17 +31,10 @@ pipeline {
                 }
             }
         }
-        stage('HTML Publish') {
-            steps {
-                script {
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: false, reportDir: 'target/generated-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
-                }
-            }
-        }
     }
     post {
         always {
-            step([$class: 'Publisher', reportFilenamePattern: 'target/testng-cucumber-reports/*.xml'])
+            step([$class: 'Publisher', reportFilenamePattern: 'target/xml-junit/*.xml'])
         }
     }
 }
