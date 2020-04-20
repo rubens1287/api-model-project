@@ -8,8 +8,21 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 
 *   Java 1.8 SDK
 *   Maven 3.5.*
+*   Intellij IDE
+*   Plugins do Intellij
+    * Cumcuber for java
+    * Lombok
 
 ## ESTRUTURA DO PROJETO
+
+| Client API                   	| Locator Strategy 	| Matched Attribute in inspect.exe       	| Example      	|
+|------------------------------	|------------------	|----------------------------------------	|--------------	|
+| FindElementByAccessibilityId 	| accessibility id 	| AutomationId                           	| AppNameTitle 	|
+| FindElementByClassName       	| class name       	| ClassName                              	| TextBlock    	|
+| FindElementById              	| id               	| RuntimeId (decimal)                    	| 42.333896.3.1	|
+| FindElementByName            	| name             	| Name                                   	| Calculator   	|
+| FindElementByTagName         	| tag name         	| LocalizedControlType (upper camel case)	| Text         	|
+| FindElementByXPath           	| xpath            	| Any                                    	| //Button[0]  	|
 
 * src\main\java\br\com\core
 

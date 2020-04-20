@@ -1,18 +1,15 @@
 package br.com.response.pojo.users;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Builder
+@Getter @Setter
+@NoArgsConstructor
 public class Geo {
 
-    @SerializedName("lat")
-    @Expose
     public String lat;
-    @SerializedName("lng")
-    @Expose
     public String lng;
 }

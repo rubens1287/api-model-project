@@ -41,9 +41,10 @@ public class UsersService {
     public void checkBody(Response response){
         Gson gson = new Gson();
         Users users = gson.fromJson(response.jsonPath().prettyPrint(), Users.class);
-        assertThat(users.email).isNotNull().isNotEmpty();
-        assertThat(users.name).isEqualTo("Leanne Graham");
-        assertThat(users.id).isGreaterThanOrEqualTo(1);
+        assertThat(users.getEmail()).isNotNull().isNotEmpty();
+        assertThat(users.getName()).isEqualTo("Leanne Graham");
+        assertThat(users.getId()).isGreaterThanOrEqualTo(1);
+
     }
 
     public void verifySchema(Response response){

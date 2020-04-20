@@ -1,21 +1,16 @@
 package br.com.response.pojo.users;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Builder
+@Getter @Setter
+@NoArgsConstructor
 public class Company {
-    @SerializedName("name")
-    @Expose
-    public String name;
-    @SerializedName("catchPhrase")
-    @Expose
-    public String catchPhrase;
-    @SerializedName("bs")
-    @Expose
-    public String bs;
 
+    public String name;
+    public String catchPhrase;
+    public String bs;
 }
