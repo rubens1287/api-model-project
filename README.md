@@ -15,58 +15,19 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 
 ## ESTRUTURA DO PROJETO
 
-| Client API                   	| Locator Strategy 	| Matched Attribute in inspect.exe       	| Example      	|
-|------------------------------	|------------------	|----------------------------------------	|--------------	|
-| FindElementByAccessibilityId 	| accessibility id 	| AutomationId                           	| AppNameTitle 	|
-| FindElementByClassName       	| class name       	| ClassName                              	| TextBlock    	|
-| FindElementById              	| id               	| RuntimeId (decimal)                    	| 42.333896.3.1	|
-| FindElementByName            	| name             	| Name                                   	| Calculator   	|
-| FindElementByTagName         	| tag name         	| LocalizedControlType (upper camel case)	| Text         	|
-| FindElementByXPath           	| xpath            	| Any                                    	| //Button[0]  	|
-
-* src\main\java\br\com\core
-
-    * Metodos genéricos de uso para qualquer projeto de teste
-
-* src\main\java\br\com\data
-
-    * Metodos do tipo models, para trabalhar com objetos de dados.
- 
-* src\main\java\br\com\request
-
-    * Metodos do tipo models, que representa objetos a serem serealizado em json para as requisições de apis
-
-* src\main\java\br\com\respose
-
-    * Metodos do tipo models, que representa objetos que recebem a deserializaçao do json de reposta das apis
-   
-* src\main\java\br\com\services
-
-    * Local onde deve ser criado os objetos que executam requisições e validações das respotas
-
-* src\test\java\hooks
-
-    * Metodos que executam antes e depois de cada teste (@Before, @After)
- 
-* src\test\java\runner
-
-    * Metodo prinicipal que inicia os testes via cucumber
-
-* src\test\java\steps
-
-    * Local onde deve ser criado as classes que representam os steps definition do cucumber
- 
-* src\test\resources\data
-
-     * Massa de dados segregada por ambiente, escritos em arquivos yaml
-     
-* src\test\resources\features
-
-  * Funcionalidade e cenarios de teste escritos em linguagem DSL (Gherkin language)
-  
-* src\test\resources\schema
-
-    * Local para armazenamento dos arquivos de schema do json utilizados para validação de contrato
+| Diretório                    	| finalidade       	                                                                                        | 
+|------------------------------	|---------------------------------------------------------------------------------------------------------- |
+| src\main\java\br\com\core 	| Metodos genéricos que apoiam as classes de testes      	                                                |
+| src\main\java\br\com\data    	| Metodos do tipo models, para trabalhar com objetos de dados                                               |
+| src\main\java\br\com\request 	| Metodos do tipo models, que representa objetos a serem serealizado em json para as requisições de apis   	|
+| src\main\java\br\com\respose 	| Metodos do tipo models, que representa objetos que recebem a deserializaçao do json de reposta das apis  	|
+| src\main\java\br\com\services	| Local onde deve ser criado os objetos que executam requisições e validações das respotas               	|
+| src\test\java\hooks          	| Metodos que executam antes e depois de cada teste (@Before, @After)                                   	|
+| src\test\java\runner         	| Metodo prinicipal que inicia os testes via cucumber                                                      	|
+| src\test\java\steps         	| Local onde deve ser criado as classes que representam os steps definition do cucumber                    	|
+| src\test\resources\data      	| Massa de dados segregada por ambiente, escritos em arquivos yaml                                      	|
+| src\test\resources\features 	| Funcionalidade e cenarios de teste escritos em linguagem DSL (Gherkin language)                        	| 
+| src\test\resources\schema 	| Local para armazenamento dos arquivos de schema do json utilizados para validação de contrato           	| 
     
 ## CLONE O PROJETO PARA SUA MÁQUINA LOCAL
 
@@ -79,7 +40,6 @@ git clone https://git.gft.com/latam-qa-practice/automation-assets/api-model-proj
 ## FRAMEWORKS UTILIZADOS
 
 Abaixo está a lista de frameworks utilizados nesse projeto
-    
 
 * Jackson para leitura de dados de arquivo yaml file
 * Gson para serializacao e deserializacao de objetos
@@ -104,6 +64,16 @@ Com o git bash acesse a pasta do projeto, onde esta localizado o arquivo pom.xml
 
 ```
 mvn allure:report
+```
+
+## MULTIPLOS COMANDOS 
+
+Você também pode mesclar a linha de comando maven com options do cucumber, 
+sendo assim você pode escolher uma determinada tag que se deseja executar do cucumber, 
+podendo escolher também a massa de dados que irá utilizar e juntamente aplicar o linha de comando para gerar o report HTML.
+
+```
+mvn clean test -Dcucumber.options="--tags @dev" -Denv=des allure:report
 ```
 
 ## EVIDÊNCIAS

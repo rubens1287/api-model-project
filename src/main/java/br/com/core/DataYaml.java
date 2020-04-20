@@ -2,11 +2,13 @@ package br.com.core;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import lombok.extern.log4j.Log4j2;
 import org.junit.Assert;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+
 
 public class DataYaml {
 

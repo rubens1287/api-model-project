@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import io.qameta.allure.Allure;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import lombok.extern.log4j.Log4j2;
 import org.junit.Assert;
 
 import java.util.Map;
@@ -15,6 +16,7 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.MatcherAssert.assertThat;
+
 
 public class UsersService {
 

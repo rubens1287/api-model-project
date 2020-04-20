@@ -1,16 +1,14 @@
 package br.com.response.pojo.users;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Builder
 @Getter @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Company {
 
-    public String name;
-    public String catchPhrase;
-    public String bs;
+    private String name;
+    private String catchPhrase;
+    private String bs;
 }
