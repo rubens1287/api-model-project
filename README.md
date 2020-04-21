@@ -41,14 +41,15 @@ git clone https://git.gft.com/latam-qa-practice/automation-assets/api-model-proj
 
 Abaixo está a lista de frameworks utilizados nesse projeto
 
-* Jackson para leitura de dados de arquivo yaml file
-* Gson para serializacao e deserializacao de objetos
-* Allure report em HTML
-* Java Faker Geracao de dados sinteticos
-* Rest Assured para teste de API (Json, Soap, Xml)
-* Cucumber especificacao executavel de cenarios
-* Assert especializados com mais tipos de validacao
+* Jackson - Responsável pela leitura de dados de arquivo yaml file
+* Gson - Responsável pela serializacao e deserializacao de objetos
+* Allure - Responsável pelo report em HTML
+* Java Faker - Responsável pela geracao de dados sintéticos
+* Rest Assured - Responsável pelos interação com a camada HTTP para teste de API (Json, Soap, Xml)
+* Cucumber - Responsável pela especificação executável dos cenários
+* AssertJ - Especializado em validações com mais tipos e formatos de verificação
 * Lombok - Otimizacao de classes modelos
+* Log4j - Responsável pelo Log do projeto
 
 ## COMANDO PARA EXECUTAR OS TESTES
 
