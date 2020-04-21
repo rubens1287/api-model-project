@@ -1,4 +1,4 @@
-package br.com.core;
+package core;
 
 import io.restassured.specification.RequestSpecification;
 

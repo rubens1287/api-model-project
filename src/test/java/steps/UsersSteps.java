@@ -1,9 +1,7 @@
 package steps;
 
-import br.com.core.DataYaml;
-import br.com.services.UsersService;
-import cucumber.api.PendingException;
-import cucumber.api.java.pt.Dado;
+import core.DataYaml;
+import services.UsersService;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import io.restassured.response.Response;

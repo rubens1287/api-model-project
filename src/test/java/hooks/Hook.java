@@ -1,6 +1,6 @@
 package hooks;
 
-import br.com.core.Spec;
+import core.Spec;
 import cucumber.api.java.Before;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;

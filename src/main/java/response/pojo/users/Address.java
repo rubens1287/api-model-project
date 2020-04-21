@@ -1,4 +1,4 @@
-package br.com.response.pojo.users;
+package response.pojo.users;
 
 import lombok.*;
 

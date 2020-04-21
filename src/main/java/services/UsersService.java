@@ -1,13 +1,12 @@
-package br.com.services;
+package services;
 
-import br.com.core.AllureTypeFile;
-import br.com.core.Spec;
-import br.com.response.pojo.users.Users;
+import core.AllureTypeFile;
+import core.Spec;
+import response.pojo.users.Users;
 import com.google.gson.Gson;
 import io.qameta.allure.Allure;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import lombok.extern.log4j.Log4j2;
 import org.junit.Assert;
 
 import java.util.Map;

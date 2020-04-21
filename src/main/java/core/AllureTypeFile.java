@@ -1,4 +1,4 @@
-package br.com.core;
+package core;
 
 public interface AllureTypeFile {
     String REQUEST ="Request";

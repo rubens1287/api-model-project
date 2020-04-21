@@ -17,18 +17,18 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 
 | Diretório                    	| finalidade       	                                                                                        | 
 |------------------------------	|---------------------------------------------------------------------------------------------------------- |
-| src\main\java\br\com\core 	| Metodos genéricos que apoiam as classes de testes      	                                                |
-| src\main\java\br\com\data    	| Metodos do tipo models, para trabalhar com objetos de dados                                               |
-| src\main\java\br\com\request 	| Metodos do tipo models, que representa objetos a serem serealizado em json para as requisições de apis   	|
-| src\main\java\br\com\respose 	| Metodos do tipo models, que representa objetos que recebem a deserializaçao do json de reposta das apis  	|
-| src\main\java\br\com\services	| Local onde deve ser criado os objetos que executam requisições e validações das respotas               	|
+| src\main\java\core 			| Metodos genéricos que apoiam as classes de testes      	                                                |
+| src\main\java\data    		| Metodos do tipo models, para trabalhar com objetos de dados                                               |
+| src\main\java\request 		| Metodos do tipo models, que representa objetos a serem serealizado em json para as requisições de apis   	|
+| src\main\java\respose 		| Metodos do tipo models, que representa objetos que recebem a deserializaçao do json de reposta das apis  	|
+| src\main\java\services		| Local onde deve ser criado os objetos que executam requisições e validações das respotas               	|
 | src\test\java\hooks          	| Metodos que executam antes e depois de cada teste (@Before, @After)                                   	|
 | src\test\java\runner         	| Metodo prinicipal que inicia os testes via cucumber                                                      	|
 | src\test\java\steps         	| Local onde deve ser criado as classes que representam os steps definition do cucumber                    	|
 | src\test\resources\data      	| Massa de dados segregada por ambiente, escritos em arquivos yaml                                      	|
 | src\test\resources\features 	| Funcionalidade e cenarios de teste escritos em linguagem DSL (Gherkin language)                        	| 
 | src\test\resources\schema 	| Local para armazenamento dos arquivos de schema do json utilizados para validação de contrato           	| 
-    
+
 ## CLONE O PROJETO PARA SUA MÁQUINA LOCAL
 
 Abra o git bash, entre no diretório escolhido na sua máquina e faça o download do projeto com o comando abaixo.
