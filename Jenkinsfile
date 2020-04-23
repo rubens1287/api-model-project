@@ -1,40 +1,38 @@
 pipeline {
     agent any
     tools {
-        maven 'maven'
-        jdk 'JDK 1.8.0_221'
+            maven 'maven'
+            jdk 'java'
     }
     stages {
-        stage('Testing') {
-            steps {
+        stage ('Run Tests'){
+			steps{
+				script {
+					if (isUnix()) {
+						sh 'mvn clean test -Denv=des'
+					} else {
+						bat 'mvn clean test -Denv=des'
+					}
+				}
+			}
+        }
+        stage ('Generate Allure Reports'){
+            steps{
                 script {
-                    if (isUnix()) {
-                        sh 'mvn clean test'
-                    } else {
-                        bat 'mvn clean test'
-                    }
-                    archiveArtifacts artifacts: '**', onlyIfSuccessful: false
+                    allure([
+                            includeProperties: false,
+                            jdk: '',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            results: [[path: 'target/allure-results']]
+                    ])
                 }
             }
-        }
-        stage('Cucumber Report') {
-            steps {
-                script {
-                    cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: 'target/json-cucumber-reports', sortingMethod: 'ALPHABETICAL'
-                }
-            }
-        }
-        stage('Live Documentation') {
-            steps {
-                script {
-                    livingDocs featuresDir: 'target/json-cucumber-reports', format: 'ALL', hideScenarioKeyword: true, toc: 'LEFT'
-                }
-            }
-        }
-    }
+         }
+     }
     post {
         always {
-            step([$class: 'Publisher', reportFilenamePattern: 'target/xml-junit/*.xml'])
+            junit allowEmptyResults: true, testResults: 'target/xml-junit/junit.xml'
         }
     }
 }

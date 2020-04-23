@@ -1,6 +1,8 @@
 package steps;
 
 import core.DataYaml;
+import cucumber.api.PendingException;
+import lombok.extern.log4j.Log4j2;
 import services.UsersService;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;

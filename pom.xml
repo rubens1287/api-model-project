@@ -20,7 +20,7 @@
 		<cucumber.version>3.0.2</cucumber.version>
 		<log4j.version>2.13.0</log4j.version>
 
-		<env>des</env> <!--	uat ou des-->
+		<env>des</env> <!--	uat ou des ou preprod-->
 
 	</properties>
 
