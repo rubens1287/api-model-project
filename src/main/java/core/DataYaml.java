@@ -13,11 +13,13 @@ import java.util.*;
 public class DataYaml {
 
     private static File getYamlDataFile(String fileName){
+        log.info(String.format("Recuperando o caminho do arquivo %s da massa de dados do ambiente %s"
+                ,fileName,System.getProperty("env")));
         return new File("./src/test/resources/data/"+System.getProperty("env")+"/"+fileName+".yml");
     }
 
     public static LinkedHashMap<String,String> getMapYamlValues(String fileName, String titulo){
-
+        log.info(String.format("Lendo arquivo %s com a massa de dados %s",fileName,titulo));
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         mapper.findAndRegisterModules();
         Map<String , Object> maps;

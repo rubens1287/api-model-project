@@ -7,7 +7,6 @@ import com.google.gson.Gson;
 import io.qameta.allure.Allure;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.junit.Assert;
 
 import java.util.Map;
 
@@ -33,10 +32,10 @@ public class UsersService {
         return response;
     }
 
-    public void healthCheck(Response response){
+    public boolean healthCheck(Response response){
         Allure.addAttachment(AllureTypeFile.RESPONSE_HEADERS,response.getHeaders().toString());
         Allure.addAttachment(AllureTypeFile.RESPONSE_BODY,response.getBody().prettyPrint());
-        Assert.assertEquals(200,response.getStatusCode());
+        return response.getStatusCode() == 200;
     }
 
     public void checkBody(Response response){
@@ -45,7 +44,6 @@ public class UsersService {
         assertThat(users.getEmail()).isNotNull().isNotEmpty();
         assertThat(users.getName()).isEqualTo("Leanne Graham");
         assertThat(users.getId()).isGreaterThanOrEqualTo(1);
-
     }
 
     public void verifySchema(Response response){
