@@ -9,19 +9,18 @@ import io.restassured.response.Response;
 
 public class UsersSteps {
 
-    Response response;
-    UsersService usersService;
-
+    private Response response;
+    private UsersService usersService;
 
     @Quando("^eu consultar um usuario$")
-    public void euConsultarUmUsuario() throws Throwable {
+    public void euConsultarUmUsuario()  {
         usersService = new UsersService();
         response = usersService.getUsers(DataYaml.getMapYamlValues("Usuarios","usuarios"));
     }
 
     @Entao("^sera apresentado todos os dados deste usuario$")
-    public void seraApresentadoTodosOsDadosDesteUsuario() throws Throwable {
-        Assert.assertTrue(usersService.healthCheck(response));
+    public void seraApresentadoTodosOsDadosDesteUsuario()  {
+        Assert.assertTrue(usersService.healthCheck(response,200));
         usersService.verifyBody(response);
         usersService.verifySchema(response);
     }

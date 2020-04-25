@@ -1,6 +1,7 @@
 package services;
 
 import core.AllureTypeFile;
+import core.ReportType;
 import core.Spec;
 import core.TestingType;
 import response.pojo.users.Users;
@@ -29,15 +30,14 @@ public class UsersService implements TestingType{
         String URI = "/users/";
         RequestSpecification httpRequest = given().spec(Spec.spec);
         Response response = httpRequest.get(URI+data.get("usuario_id"));
-        Allure.addAttachment(AllureTypeFile.REQUEST,URI);
+        ReportType.reportToAllureUriRequest(URI);
         return response;
     }
 
     @Override
-    public boolean healthCheck(Response response){
-        Allure.addAttachment(AllureTypeFile.RESPONSE_HEADERS,response.getHeaders().toString());
-        Allure.addAttachment(AllureTypeFile.RESPONSE_BODY,response.getBody().prettyPrint());
-        return response.getStatusCode() == 200;
+    public boolean healthCheck(Response response, int statuCode){
+        ReportType.reportToAllureHeaderAndBodyResponse(response);
+        return response.getStatusCode() == statuCode;
     }
 
     @Override

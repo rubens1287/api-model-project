@@ -4,7 +4,7 @@ import io.restassured.response.Response;
 
 public interface TestingType {
 
-    boolean healthCheck(Response response);
+    boolean healthCheck(Response response, int statuCode);
 
     boolean verifyBody(Response response);
 
