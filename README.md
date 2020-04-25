@@ -100,11 +100,8 @@ Configurações necessárias para rodar o pipeline no Jenkins
 ### ETAPAS
 
 * Java e Maven no contexto do jenkins
-* Download do Zalenium como infraestrutura 
-* Execução dos containers do Zalenium
 * Execução dos testes
 * Geração do Report com Allure
-* Encerramento da infraestrutura do Zalenium
 * Upload dos arquivos junit.xml e exec_logs.log
 
 ## EVIDÊNCIAS
