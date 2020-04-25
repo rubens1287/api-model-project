@@ -30,7 +30,7 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 | src\test\resources\features 	| Funcionalidade e cenarios de teste escritos em linguagem DSL (Gherkin language)                        	| 
 | src\test\resources\schema 	| Local para armazenamento dos arquivos de schema do json utilizados para validação de contrato           	| 
 
-## DOWNLOAD DO PROJETO TEMPALTE PARA SUA MÁQUINA LOCAL
+## DOWNLOAD DO PROJETO TEMPLATE PARA SUA MÁQUINA LOCAL
 
 Faça o donwload do template no repositório de código para utilizar no seu projeto em especifico, 
 feito isso, fique a vontande para usufruir dos recursos disponíveis e 
