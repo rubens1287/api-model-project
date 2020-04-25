@@ -12,6 +12,7 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 *   Plugins do Intellij
     * Cumcuber for java
     * Lombok
+    * Ideolog 
 
 ## ESTRUTURA DO PROJETO
 
@@ -29,9 +30,11 @@ Requisitos de software e hardware necessários para executar este projeto de aut
 | src\test\resources\features 	| Funcionalidade e cenarios de teste escritos em linguagem DSL (Gherkin language)                        	| 
 | src\test\resources\schema 	| Local para armazenamento dos arquivos de schema do json utilizados para validação de contrato           	| 
 
-## CLONE O PROJETO PARA SUA MÁQUINA LOCAL
+## DOWNLOAD DO PROJETO TEMPALTE PARA SUA MÁQUINA LOCAL
 
-Abra o git bash, entre no diretório escolhido na sua máquina e faça o download do projeto com o comando abaixo.
+Faça o donwload do template no repositório de código para utilizar no seu projeto em especifico, 
+feito isso, fique a vontande para usufruir dos recursos disponíveis e 
+também customizar de acordo com sua necessidade. 
 
 ```
 git clone https://git.gft.com/latam-qa-practice/automation-assets/api-model-project.git
@@ -53,7 +56,7 @@ Abaixo está a lista de frameworks utilizados nesse projeto
 
 ## COMANDO PARA EXECUTAR OS TESTES
 
-Com o git bash acesse a pasta do projeto, onde esta localizado o arquivo pom.xml, execute o comando abaixo para rodar os testes automatizados.
+Com o prompt de comando acesse a pasta do projeto, onde esta localizado o arquivo pom.xml, execute o comando abaixo para rodar os testes automatizados.
 
 ```
 mvn clean test
@@ -61,7 +64,7 @@ mvn clean test
 
 ## COMANDO PARA GERAR EVIDÊNCIAS EM HTML (ALLURE)
 
-Com o git bash acesse a pasta do projeto, onde esta localizado o arquivo pom.xml, execute o comando abaixo para rodar os testes automatizados.
+Com o prompt de comando acesse a pasta do projeto, onde esta localizado o arquivo pom.xml, execute o comando abaixo para gerar as evidências em HTML
 
 ```
 mvn allure:report
@@ -76,6 +79,33 @@ podendo escolher também a massa de dados que irá utilizar e juntamente aplicar
 ```
 mvn clean test -Dcucumber.options="--tags @dev" -Denv=des allure:report
 ```
+
+## TESTES CONTINUOS
+
+### JENKINS
+
+Executar testes de forma continua vem se tornado fundamental para agregar valor junto a seu time,
+para isto foi configurado o pipeline para ser aplicado ao jenkins chamando "Jenkinsfile"
+localizado na raiz do projeto
+
+### PRE-REQUISITOS
+
+Configurações necessárias para rodar o pipeline no Jenkins
+
+*   [Allure configurado no Jenkins](https://docs.qameta.io/allure/#_jenkins)
+*   [Docker instalado na máquina agente](https://www.docker.com/products/docker-desktop)
+*   Plugins
+    * [Allure Jenkins Plugin](https://plugins.jenkins.io/allure-jenkins-plugin)
+   
+### ETAPAS
+
+* Java e Maven no contexto do jenkins
+* Download do Zalenium como infraestrutura 
+* Execução dos containers do Zalenium
+* Execução dos testes
+* Geração do Report com Allure
+* Encerramento da infraestrutura do Zalenium
+* Upload dos arquivos junit.xml e exec_logs.log
 
 ## EVIDÊNCIAS
 

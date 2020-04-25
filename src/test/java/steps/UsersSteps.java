@@ -1,8 +1,6 @@
 package steps;
 
 import core.DataYaml;
-import cucumber.api.PendingException;
-import lombok.extern.log4j.Log4j2;
 import org.junit.Assert;
 import services.UsersService;
 import cucumber.api.java.pt.Entao;
@@ -24,7 +22,7 @@ public class UsersSteps {
     @Entao("^sera apresentado todos os dados deste usuario$")
     public void seraApresentadoTodosOsDadosDesteUsuario() throws Throwable {
         Assert.assertTrue(usersService.healthCheck(response));
-        usersService.checkBody(response);
+        usersService.verifyBody(response);
         usersService.verifySchema(response);
     }
 }

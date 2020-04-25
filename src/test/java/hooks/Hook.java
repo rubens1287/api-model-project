@@ -15,8 +15,8 @@ public class Hook extends Spec {
 
     @Before
     public void init(Scenario scenario) {
-        log.info("TESTE INICIADO: " + scenario.getName());
-        log.info(String.format("Construindo objeto SPEC com as definições globais de requisição"));
+        log.info(String.format("TESTE INICIADO: %s",scenario.getName()));
+        log.info("Construindo objeto SPEC com as definições globais de requisição");
         spec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .setBaseUri(System.getProperty("endpoint"))
@@ -27,8 +27,8 @@ public class Hook extends Spec {
 
     @After
     public void end(Scenario scenario){
-        log.info("TESTE FINALIZADO: " + scenario.getName());
-        log.info("TESTE STATUS: " + scenario.getStatus());
+        log.info(String.format("TESTE FINALIZADO: %s",scenario.getName()));
+        log.info(String.format("TESTE STATUS: %s",scenario.getStatus()));
     }
 }
 
