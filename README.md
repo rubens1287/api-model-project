@@ -36,9 +36,6 @@ Faça o donwload do template no repositório de código para utilizar no seu pro
 feito isso, fique a vontande para usufruir dos recursos disponíveis e 
 também customizar de acordo com sua necessidade. 
 
-```
-git clone https://git.gft.com/latam-qa-practice/automation-assets/api-model-project.git
-```
 
 ## FRAMEWORKS UTILIZADOS
 
