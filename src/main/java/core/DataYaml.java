@@ -11,7 +11,7 @@ import java.util.*;
 
 
 @Log4j2
-public class DataYaml {
+public class DataYaml{
 
     private static File getYamlDataFile(String fileName){
         log.info(String.format("Recuperando o caminho do arquivo %s.yml da massa de dados do ambiente %s"

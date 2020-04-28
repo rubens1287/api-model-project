@@ -1,15 +1,13 @@
 package services;
 
-import core.AllureTypeFile;
-import core.ReportType;
-import core.Spec;
-import core.TestingType;
+import core.*;
 import response.pojo.users.Users;
 import com.google.gson.Gson;
 import io.qameta.allure.Allure;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -41,11 +39,12 @@ public class UsersService implements TestingType{
     }
 
     @Override
-    public boolean verifyBody(Response response){
+    public boolean verifyBody(Response response,HashMap data){
         Gson gson = new Gson();
+
         Users users = gson.fromJson(response.jsonPath().prettyPrint(), Users.class);
         assertThat(users.getEmail()).isNotNull().isNotEmpty();
-        assertThat(users.getName()).isEqualTo("Leanne Graham");
+        assertThat(users.getName()).isEqualTo(data.get("nome"));
         assertThat(users.getId()).isGreaterThanOrEqualTo(1);
         return true;
     }
