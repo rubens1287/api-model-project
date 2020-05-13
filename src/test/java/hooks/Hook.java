@@ -8,15 +8,18 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
+import localization.MessageParser;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class Hook extends Spec {
 
+    private static MessageParser parser = new MessageParser();
+
     @Before
     public void init(Scenario scenario) {
-        log.info(String.format("TESTE INICIADO: %s",scenario.getName()));
-        log.info("Construindo objeto SPEC com as definições globais de requisição");
+        log.info(parser.parse("hook.test.started", new Object[]{scenario.getName()}));
+        log.info(parser.parse("hook.test.build"));
         spec = new RequestSpecBuilder()
                 .setContentType(ContentType.JSON)
                 .setBaseUri(System.getProperty("endpoint"))
@@ -27,8 +30,8 @@ public class Hook extends Spec {
 
     @After
     public void end(Scenario scenario){
-        log.info(String.format("TESTE FINALIZADO: %s",scenario.getName()));
-        log.info(String.format("TESTE STATUS: %s",scenario.getStatus()));
+        log.info(parser.parse("hook.test.ended", new Object[]{scenario.getName()}));
+        log.info(parser.parse("hook.test.status", new Object[]{scenario.getStatus()}));
     }
 }
 
